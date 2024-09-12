@@ -81,7 +81,7 @@ bool CityInfo::operator==(const CityInfo &c)
             mostImportant == c.mostImportant);
 }
 
-vector<int> CityInfo::getInterestPoints()
+vector<int> CityInfo::getInterestPoints() const
 {
     vector<int> interestPoints;
 
@@ -93,12 +93,12 @@ vector<int> CityInfo::getInterestPoints()
     return interestPoints;
 }
 
-bool CityInfo::hasAirport()
+bool CityInfo::hasAirport() const
 {
     return airport;
 }
 
-string CityInfo::getMostFrequent()
+string CityInfo::getMostFrequent() const
 {
     vector<pair<string, int>> elements;
     if (airport)
@@ -141,7 +141,7 @@ string CityInfo::getMostFrequent()
     return result;
 }
 
-string CityInfo::getMostImportant(){
+string CityInfo::getMostImportant() const{
     return mostImportant;
 }
 

@@ -1,0 +1,8 @@
+A -> 5 8 1 3 1 
+B -> 8 4 12 1 0 
+C -> 0 0 0 0 0 
+A y B son distintos
+A y B no son iguales
+top de A -> Sagrada Familia
+C=A; C -> 5 8 1 3 1 Sagrada Familia
+CityInfo D(C); D -> 5 8 1 3 1 Sagrada Familia

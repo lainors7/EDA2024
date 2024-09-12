@@ -1,0 +1,10 @@
+A -> 1 2 3 4 0 
+B -> 1 2 3 4 1 
+C copia de B:
+C -> 1 2 3 4 1 
+A y B son distintos
+B y C son iguales
+Se asigna top a B
+B -> 1 2 3 4 1 Torre Eiffel
+C -> 1 2 3 4 1 
+B y C son distintos

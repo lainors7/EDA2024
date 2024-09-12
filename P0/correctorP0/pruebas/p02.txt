@@ -1,0 +1,7 @@
+A -> 1 2 3 4 0 
+B -> 0 2 0 2 1 
+C copia de B:
+C -> 0 2 0 2 1 
+setMostImportant de B:
+B -> 0 2 0 2 1 Torre Eiffel
+C -> 0 2 0 2 1 

@@ -29,17 +29,16 @@ public:
     // metodos publicos
     bool operator!=(const CityInfo &c);     // Sobrecarga del operador !=
     bool operator==(const CityInfo &c);     // Sobrecarga del operador ==
-    vector<int> getInterestPoints() const;        // Devuelve los puntos de interes como un vector de enteros
-    bool hasAirport() const;                      // Devuelve si hay aeropuerto
-    string getMostFrequent() const;               // Devuelve el elemento turistico mas frecuente
-    string getMostImportant() const;              // Devuelve el valor de lavariable mostImportant
+    vector<int> getInterestPoints() const;  // Devuelve los puntos de interes como un vector de enteros
+    bool hasAirport() const;                // Devuelve si hay aeropuerto
+    string getMostFrequent() const;         // Devuelve el elemento turistico mas frecuente
+    string getMostImportant() const;        // Devuelve el valor de lavariable mostImportant
     void setMostImportant(const string &s); // Actualiza la variable mostImportant
     // Funciones amigas (friend)
     friend ostream &operator<<(ostream &os, CityInfo &c)
     { // Funcion amiga para sobrecargar el operador de salida <<
-        os << c.museums << " " << c.monuments << " " << c.hotels << " "
-           << c.restaurants << " " << (c.airport ? 1 : 0) << " " << c.mostImportant << endl;
-           return os;
+        os << c.museums << " " << c.monuments << " " << c.hotels << " " << c.restaurants << " " << (c.airport ? 1 : 0) << " " << c.mostImportant << endl;
+        return os;
     }
 };
 

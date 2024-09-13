@@ -128,17 +128,8 @@ string CityInfo::getMostFrequent() const
             names.push_back(elements[i].first);
         }
     }
-    cout << result;
-    string result;
 
-    for (int i = 0; i < names.size(); ++i) {
-        if (i > 0) {
-            result += ", ";
-        }
-        result += names[i];
-    }
-
-    return result;
+    return names[0];
 }
 
 string CityInfo::getMostImportant() const{

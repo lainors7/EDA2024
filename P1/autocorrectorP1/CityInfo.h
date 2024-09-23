@@ -35,7 +35,7 @@ public:
     string getMostImportant() const;        // Devuelve el valor de lavariable mostImportant
     void setMostImportant(const string &s); // Actualiza la variable mostImportant
     // Funciones amigas (friend)
-    friend ostream &operator<<(ostream &os, CityInfo &c)
+    friend ostream &operator<<(ostream &os, const CityInfo &c)
     { // Funcion amiga para sobrecargar el operador de salida <<
         os << c.museums << " " << c.monuments << " " << c.hotels << " " << c.restaurants << " " << (c.airport ? 1 : 0) << " " << c.mostImportant << endl;
         return os;

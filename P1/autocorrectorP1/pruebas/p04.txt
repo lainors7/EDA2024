@@ -1,0 +1,27 @@
+MMMMMMMMMMMMM
+MMMMMMTTCMMMM
+MMMCTTTTTTTMM
+MMTTTCTCTTTMM
+MTTTTTTTTTTMM
+MTTMMTTTTTTTM
+MTMMMMTTTTTTM
+MMMMMMTTTTTMM
+MMMMMMTTTMMMM
+MMMMMMMMMMMMM
+
+CIUDADES
+Auckland (1,8)
+Rotorua (2,3)
+Matamata (3,5)
+Hamilton (3,7)
+
+ESTADISTICAS
+Museos: 9
+Monumentos: 6
+Hoteles: 16
+Restaurantes: 27
+Aeropuertos: 1
+
+MONUMENTOS
+*** Waimangu Volcanic Valley (Rotorua)
+** Hobbiton Movie Set (Matamata)

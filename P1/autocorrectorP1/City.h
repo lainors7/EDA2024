@@ -35,6 +35,7 @@ public:
 
      friend ostream &operator<<(ostream &os, const City &c)
     { // Funcion amiga para sobrecargar el operador de salida <<
+
          os << c.id << "-" << c.name<< "-" << c.coord << endl << c.info;
         return os;
     }

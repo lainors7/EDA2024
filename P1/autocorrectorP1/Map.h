@@ -31,6 +31,7 @@ public:
     // Sobrecarga del operador <<
     friend ostream &operator<<(ostream &os, const Map &m)
     {
+
         //mostrar el mapa
         for (size_t i = 0; i < m.map.size(); ++i)
         {
@@ -41,10 +42,11 @@ public:
             os << endl;
         }
 
+
         // Mostrar las ciudades
-        for (size_t i = 0; i < m.cities.size(); ++i)
+        for (size_t z = 0; z < m.cities.size(); ++z)
         {
-            os << m.cities[i] << endl;
+            os << m.cities[z] << endl;
         }
 
         return os;

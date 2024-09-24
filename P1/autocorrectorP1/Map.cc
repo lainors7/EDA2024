@@ -16,25 +16,26 @@ void Map::read(string filename)
 
         return;
     }
-
+    map.clear();
+    cities.clear();
     // Leer el mapa
     string line;
     while (getline(file, line))
     {
 
         if (line.empty() || line == "<CIUDAD>")
-            break; // Detenerse si se encuentra una línea vacía
+            break; // Detenerse si es vacio o es ciudad
 
         vector<char> row(line.begin(), line.end());
         map.push_back(row);
     }
 
-    // Leer la información de las ciudades
+    // Leer ciudades
     while (getline(file, line))
     {
 
         if (line != "<CIUDAD>")
-            continue; // Buscamos la línea que indica el inicio de una ciudad
+            continue;
 
         // Leer el nombre de la ciudad
         string cityName;

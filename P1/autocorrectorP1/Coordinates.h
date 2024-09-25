@@ -26,7 +26,7 @@ public:
     int getCol() const; //devuelve el valor de col
     friend ostream &operator<<(ostream &os, const Coordinates &c)
     { // Funcion amiga para sobrecargar el operador de salida <<
-         os << "(" << c.row << ", " << c.col << ")";
+         os << "(" << c.row << "," << c.col << ")";
         return os;
     }
 };

@@ -12,8 +12,16 @@ Coordinates::Coordinates()
 
 Coordinates::Coordinates(int r, int c)
 {
-    row = (r >= 0) ? r : -1;
-    col = (c >= 0) ? c : -1;
+    if (r >= 0 && c >= 0)
+    {
+        row = r;
+        col = c;
+    }
+    else
+    {
+        row = -1;
+        col = -1;
+    }
 }
 
 Coordinates::Coordinates(const Coordinates &c)

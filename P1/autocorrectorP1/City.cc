@@ -40,7 +40,7 @@ int City::setCoord(int r, int c, vector<vector<char>> &map)
         return -1;
     }
 
-    if (coord.getCol() >= 0 || coord.getCol() >= 0)
+    if (coord.getCol() >= 0 || coord.getRow() >= 0)
     { // ya tiene coordenadas validas
         return -1;
     }

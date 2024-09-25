@@ -46,9 +46,9 @@ public:
         // Mostrar las ciudades
         for (size_t z = 0; z < m.cities.size(); ++z)
         {
-            os << m.cities[z] << endl;
+            os << m.cities[z];
         }
-
+        
         return os;
     }
 };

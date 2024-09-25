@@ -1,5 +1,5 @@
 MMMMMMMMMMMMM
-MMMMMMTTTMMMM
+MMMMMMTTCMMMM
 MMMCTTTTTTTMM
 MMTTTCTCTTTMM
 MTTTTTTTTTTMM
@@ -8,26 +8,20 @@ MTMMMMTTTTTTM
 MMMMMMTTTTTMM
 MMMMMMTTTMMMM
 MMMMMMMMMMMMM
-29-Rotorua-(2, 3)
-0 0 0 0 0 
-
-44-Matamata-(3, 5)
-0 0 0 0 0 
-
-46-Hamilton-(3, 7)
-0 0 0 0 0 
-
-
 
 CIUDADES
-Rotorua (2, 3)
-Matamata (3, 5)
-Hamilton (3, 7)
+Auckland (1,8)
+Rotorua (2,3)
+Matamata (3,5)
+Hamilton (3,7)
 
 ESTADISTICAS
-Museos: 0
-Monumentos: 0
-Hoteles: 0
-Restaurantes: 0
+Museos: 9
+Monumentos: 6
+Hoteles: 16
+Restaurantes: 27
+Aeropuertos: 1
 
 MONUMENTOS
+*** Waimangu Volcanic Valley (Rotorua)
+** Hobbiton Movie Set (Matamata)

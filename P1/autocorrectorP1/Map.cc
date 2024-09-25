@@ -1,5 +1,6 @@
 // DNI 74012320E LINARES PEREZ, OSCAR
 #include "Map.h"
+#include <sstream>
 
 Map::Map()
 {
@@ -9,110 +10,109 @@ Map::Map()
 
 void Map::read(string filename)
 {
-
     ifstream file(filename);
     if (!file.is_open())
     {
-
+        cerr << "No se pudo abrir el archivo: " << filename << endl;
         return;
     }
+
+    // Limpiar el mapa y las ciudades anteriores
     map.clear();
     cities.clear();
-    // Leer el mapa
+
     string line;
+
+    // Leer el mapa
     while (getline(file, line))
     {
-
-        if (line.empty() || line == "<CIUDAD>")
-            break; // Detenerse si es vacio o es ciudad
+        if (line == "<CIUDAD>")
+            break; // Si encontramos una "<CIUDAD>" salimos
 
         vector<char> row(line.begin(), line.end());
         map.push_back(row);
     }
 
-    // Leer ciudades
-    while (getline(file, line))
+    while (getline(file, line)) // Leer hasta el final del archivo
     {
+        // Guardar el nombre de la ciudad
+        string cityName = line;
 
-        if (line != "<CIUDAD>")
-            continue;
+        getline(file, line); //saltamos a la siguiente linea, las coordenadas
+        stringstream ss(line); // Leemos las coordenadas
 
-        // Leer el nombre de la ciudad
-        string cityName;
-        getline(file, cityName);
-
-        // Leer las coordenadas
         int r, c;
-        int museums = 0;
-        int monuments = 0;
-        int hotels = 0;
-        int restaurants = 0;
-        bool airport;
+        
+        (ss >> r >> c); // asignamos las coordenadas
+       
+        int museums = 0, monuments = 0, hotels = 0, restaurants = 0;
+        bool airport = false;
         string mostImportant = "";
-        file >> r >> c;
-        file.ignore(); // Ignorar el carácter de nueva línea
-        CityInfo info;
-        // Leer la información turística
 
-        while (getline(file, line) && line == "<CIUDAD>")
+        // Leer "<INFO>"
+        getline(file, line); //Slatamos a leer la info
+        if (line == "<INFO>")
         {
-            if (line == "<INFO>")
+            // Leer info turistica
+            while (getline(file, line) && !line.empty() && line != "<CIUDAD>") //Saltamos a leer info, si no es, salimos.
             {
-                // Leer información turística
-                while (getline(file, line) && !line.empty())
-                {
-                    stringstream ss(line);
-                    string type;
-                    ss >> type;
+                stringstream ss(line);
+                string type;
+                ss >> type;
 
-                    if (type == "museo")
-                    {
-                        int count;
-                        ss >> count;
-                        museums += count;
-                    }
-                    else if (type == "monumento")
-                    {
-                        int count;
-                        ss >> count;
-                        monuments += count;
-                    }
-                    else if (type == "hotel")
-                    {
-                        int count;
-                        ss >> count;
-                        hotels += count;
-                    }
-                    else if (type == "restaurante")
-                    {
-                        int count;
-                        ss >> count;
-                        restaurants += count;
-                    }
-                    else if (type == "aeropuerto")
-                    {
-                        airport = true;
-                    }
-                    else
-                    {
-                        // Asumimos que el resto son nombres de puntos de interés
-                        mostImportant = line; // Implementar este método en CityInfo
-                    }
+                if (type == "museo")
+                {
+                    int count;
+                    ss >> count;
+                    museums += count;
                 }
-                CityInfo info(0, 0, 0, 0, false); // Inicializar con valores por defecto
+                else if (type == "monumento")
+                {
+                    int count;
+                    ss >> count;
+                    monuments += count;
+                }
+                else if (type == "hotel")
+                {
+                    int count;
+                    ss >> count;
+                    hotels += count;
+                }
+                else if (type == "restaurante")
+                {
+                    int count;
+                    ss >> count;
+                    restaurants += count;
+                }
+                else if (type == "aeropuerto")
+                {
+                    airport = true;
+                }
+                else
+                {
+                    mostImportant = line;
+                }
             }
         }
 
-        // Crear un objeto City e inicializarlo
+        // Guardamos los datos en CityInfo
+        CityInfo info(museums, monuments, hotels, restaurants, airport);
+        info.setMostImportant(mostImportant);
+
+        // Creamos una ciudad
         City city(cityName);
         city.setCoord(r, c, map);
         city.setInfo(info);
 
-        // Añadir la ciudad al vector
-        cities.push_back(city);
+        // Agregamos la ciudad al vector de ciudades si es una ciudad valida
+        if (city.getId() != -1)
+        {
+
+            cities.push_back(city);
+        }
     }
 
-    file.close();
+    file.close(); // Cerrar el archivo al finalizar
 }
 
 vector<vector<char>> &Map::getMap()
@@ -134,4 +134,3 @@ char Map::getMapPosition(Coordinates coord) const
     }
     return map[coord.getRow()][coord.getCol()];
 }
-
